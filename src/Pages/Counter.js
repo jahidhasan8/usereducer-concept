@@ -4,10 +4,10 @@ const Counter = () => {
     const initialState=0;
     const reducer=(state,action)=>{
            if(action.type ==="INCREMENT"){
-              return state+1
+              return state+action.payload
            }
            else if(action.type==="DECREMENT"){
-            return state-1
+            return state-action.payload
            }
     }
     const [state,dispatch]=useReducer(reducer,initialState)
@@ -16,8 +16,8 @@ const Counter = () => {
         <div className='bg-white rounded-md p-10'>
             <h1 className='text-2xl text-center mb-5'>{state}</h1>
             <div className='flex justify-center gap-5'>
-                <button className='py-2 px-3 bg-purple-200 rounded-md ' onClick={()=>dispatch({type:"DECREMENT"})}>Decrement</button>
-                <button  className='py-2 px-3 bg-cyan-200 rounded-md ' onClick={()=>dispatch({type:"INCREMENT"})}>Increment</button>
+                <button className='py-2 px-3 bg-purple-200 rounded-md ' onClick={()=>dispatch({type:"DECREMENT", payload:5})}>Decrement</button>
+                <button  className='py-2 px-3 bg-cyan-200 rounded-md ' onClick={()=>dispatch({type:"INCREMENT", payload:5})}>Increment</button>
             </div>
         </div>
     </div>
